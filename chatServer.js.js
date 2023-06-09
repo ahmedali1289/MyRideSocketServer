@@ -20,6 +20,15 @@ io.on("connection", (socket) => {
     });
     console.log("sent,recieve", from, to,  message,time);
   });
+  socket.on("rideRequest", ({ from, to, pickup, dropoff }) => {
+    io.emit("rideRequest", {
+      from: from,
+      to: to,
+      pickup:pickup,
+      dropoff:dropoff
+    });
+    console.log("sent,recieve", from, to, pickup, dropoff);
+  });
   socket.on("rideAccept", ({ from, to }) => {
     io.emit("rideAccept", {
       from: from,

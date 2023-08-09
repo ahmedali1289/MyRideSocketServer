@@ -64,6 +64,13 @@ io.on("connection", (socket) => {
     });
     console.log("sent,recieve", from, to);
   });
+  socket.on("rideDecline", ({ from, to }) => {
+    io.emit("rideDecline", {
+      from: from,
+      to: to
+    });
+    console.log("sent,recieve", from, to);
+  });
   socket.on("disconnect", () => {
     socket.disconnect();
     console.log("🔥: A user disconnected");

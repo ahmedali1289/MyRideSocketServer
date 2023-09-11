@@ -38,14 +38,11 @@ io.on("connection", (socket) => {
   });
   socket.on("rideStarted", ({data}) => {
     io.emit("rideStarted", {data});
-    console.log("start ride data", from, to);
+    console.log("start ride data", data);
   });
-  socket.on("rideEnd", ({ from, to }) => {
-    io.emit("rideEnd", {
-      from: from,
-      to: to
-    });
-    console.log("sent,recieve", from, to);
+  socket.on("rideEnd", ({ data }) => {
+    io.emit("rideEnd", {data});
+    console.log("ride end", data);
   });
   socket.on("rideRated", ({ from, to }) => {
     io.emit("rideRated", {

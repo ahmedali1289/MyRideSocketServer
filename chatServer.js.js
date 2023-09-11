@@ -32,6 +32,10 @@ io.on("connection", (socket) => {
     io.emit("rideArrived", { data });
     console.log("arrival data", data);
   });
+  socket.on("rideCancel", ({ data }) => {
+    io.emit("rideCancel", { data });
+    console.log("cancel ride data", data);
+  });
   socket.on("rideStarted", ({ from, to }) => {
     io.emit("rideStarted", {
       from: from,

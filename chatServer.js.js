@@ -21,9 +21,7 @@ io.on("connection", (socket) => {
     console.log("sent,recieve", from, to,  message,time);
   });
   socket.on("rideRequest", ({ data }) => {
-    io.emit("rideRequest", {
-      data:data
-    });
+    io.emit("rideRequest", {data});
     console.log("Ride Request data", data);
   });
   socket.on("rideAccept", ({ from, to }) => {

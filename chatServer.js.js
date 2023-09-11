@@ -28,12 +28,9 @@ io.on("connection", (socket) => {
     io.emit("rideAccept", {data});
     console.log("accept data", data);
   });
-  socket.on("rideArrived", ({ from, to }) => {
-    io.emit("rideArrived", {
-      from: from,
-      to: to
-    });
-    console.log("sent,recieve", from, to);
+  socket.on("rideArrived", ({ data }) => {
+    io.emit("rideArrived", { data });
+    console.log("arrival data", data);
   });
   socket.on("rideStarted", ({ from, to }) => {
     io.emit("rideStarted", {

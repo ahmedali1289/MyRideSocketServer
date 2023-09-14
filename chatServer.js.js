@@ -51,6 +51,10 @@ io.on("connection", (socket) => {
     });
     console.log("sent,recieve", from, to);
   });
+  socket.on("latlng", ({ data }) => {
+    io.emit("latlng", {data});
+    console.log("latlng", data);
+  });
   socket.on("rideDecline", ({ from, to }) => {
     io.emit("rideDecline", {
       from: from,
